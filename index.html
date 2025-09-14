@@ -292,8 +292,18 @@
             });
         });
     </script>
-    <audio autoplay loop hidden>
+    <audio id="bgm" autoplay loop hidden muted>
         <source src="img/Himawari.mp3" type="audio/mpeg">
       </audio>
+      
+      <script>
+        document.addEventListener("click", () => {
+          const bgm = document.getElementById("bgm");
+          if (bgm.paused) {
+            bgm.muted = false; // nyalain suara
+            bgm.play();
+          }
+        }, { once: true }); // hanya sekali aja dijalankan
+      </script>
 </body>
 </html>
