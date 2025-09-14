@@ -265,7 +265,10 @@
             <circle cx="50" cy="55" r="15" fill="#f9f7fc" />
         </svg>
     </div>
-
+    <audio id="bgm" autoplay loop muted hidden>
+        <source src="img/Himawari.mp3" type="audio/mpeg">
+      </audio>
+      
     <script>
         // Simple animation for letters
         document.addEventListener('DOMContentLoaded', function() {
@@ -292,18 +295,16 @@
             });
         });
     </script>
-    <audio id="bgm" autoplay loop hidden muted>
-        <source src="img/Himawari.mp3" type="audio/mpeg">
-      </audio>
-      
-      <script>
+   
+      <!-- musik -->
+    <script>
         document.addEventListener("click", () => {
           const bgm = document.getElementById("bgm");
+          bgm.muted = false;
           if (bgm.paused) {
-            bgm.muted = false; // nyalain suara
-            bgm.play();
+            bgm.play().catch(err => console.log("Autoplay blocked:", err));
           }
-        }, { once: true }); // hanya sekali aja dijalankan
+        });
       </script>
 </body>
 </html>
